@@ -44,7 +44,7 @@ const HomePage = () => {
         }'
         className="relative"
       >
-        <div className="hs-carousel h-[460px] relative overflow-hidden w-full md:h-[500px] lg:h-[550px] min-h-100 bg-white z-0">
+        <div className="hs-carousel h-[500px] relative overflow-hidden w-full md:h-[550px] lg:h-[600px] min-h-100 bg-white z-0">
          <div className="my-[60px] md:my-[100px] hs-carousel-body absolute top-0 md:top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 ">
 
 
