@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook,faXTwitter,faDiscord, faApple, faAndroid, faWindows, faAppStoreIos } from '@fortawesome/free-brands-svg-icons'
 import {  faMobile } from "@fortawesome/free-solid-svg-icons";
