@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Footer from './Home/Footer'
 import Joblist from './Home/Joblist'
 import { Link } from 'react-router-dom'

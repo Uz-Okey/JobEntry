@@ -8,7 +8,6 @@ import DashboardPage from './pages/DashboardPage'
 import ContactPage from './pages/ContactPage'
 import ServicePage from './pages/ServicePage'
 import SettingsPages from './pages/SettingsPages'
-import EarningPage from './pages/EarningPage'
 function App() {
 
 
@@ -22,7 +21,6 @@ function App() {
         <Route path='/aboutpage' element={<AboutPage />} />
         <Route path='dashboardpage' element={<DashboardPage />} />
         <Route path='settingspage' element={<SettingsPages />} />
-        <Route path='earningspage' element={<EarningPage />} />
         <Route path='servicepage' element={<ServicePage />} />
         <Route path='/contactpage' element={<ContactPage />} />
       </Routes>

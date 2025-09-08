@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import  { useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMessage, faTaxi, faLandmark, faTruck, faIdCard } from '@fortawesome/free-solid-svg-icons'
 import './HomePage.css'

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 import carousel from '../assets/carousel1.jpg'
 import Footer from './Home/Footer'
