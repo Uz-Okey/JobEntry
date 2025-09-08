@@ -1,0 +1,17 @@
+.text-color{
+    color: #00B074;
+}
+
+.jobentry-font-size{
+    font-size: clamp(2rem, 3vw, 5rem);
+}
+
+.text-font{
+font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.bg-color{
+    background: linear-gradient(to left, #3c813c, #00E1A2);
+color: white;
+}
+
