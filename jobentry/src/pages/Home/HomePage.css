@@ -1,5 +1,5 @@
 .carousel-text {
-  font-size: clamp(2rem, 5vw, 20rem);
+  font-size: clamp(2.4rem, 5vw, 20rem);
   font-family:
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   /* Gradient background */

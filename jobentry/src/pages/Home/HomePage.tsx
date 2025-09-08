@@ -44,7 +44,7 @@ const HomePage = () => {
         }'
         className="relative"
       >
-        <div className="hs-carousel h-[500px] relative overflow-hidden w-full md:h-[550px] lg:h-[600px] min-h-100 bg-white z-0">
+        <div className="hs-carousel h-[500px] relative overflow-hidden w-full md:h-[550px] lg:h-[590px] min-h-100 bg-white z-0">
          <div className="my-[60px] md:my-[100px] hs-carousel-body absolute top-0 md:top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 ">
 
 
@@ -83,7 +83,7 @@ const HomePage = () => {
             <div className="hs-carousel-slide relative">
               <div className="relative h-full">
                 {/* Dark overlay */}
-                <div className="absolute inset-0 h-screen bg-black/50"></div>
+                <div className="absolute top-0 bottom-0 inset-0 h-screen bg-black/50"></div>
                 <div className="relative left-4 top-1/5">
                   {/* Top line */}
                   <div className="lineH absolute top-0 left-0"></div>
