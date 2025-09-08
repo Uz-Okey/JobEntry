@@ -1,4 +1,4 @@
-import React from "react";
+
 import './HomePage.css'
 import img1 from '../../img/testimonial-1.jpg'
 import img2 from '../../img/testimonial-2.jpg'

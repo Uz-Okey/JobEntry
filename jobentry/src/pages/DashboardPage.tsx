@@ -26,7 +26,7 @@ const DashboardPage = () => {
                   className="w-full overflow-hidden h-full object-cover"
                 />
 
-                <div className='absolute text-white font-bold justify-end text-center flex-col flex gap-5'>
+                <div className='absolute text-white font-bold justify-end text-center flex gap-5'>
                   <Link
                     to="/" className='buttonbg rounded-sm py-1 px-4 border-2'
                   >Home</Link>

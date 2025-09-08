@@ -1,60 +1,76 @@
-import React, { useEffect, useRef, useState } from 'react'
-import axios from 'axios'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMoneyBill1, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import  { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoneyBill1, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+
+// ✅ Define type for jobs coming from API
+type Job = {
+  id: number;
+  company_name: string;
+  company_logo: string | null;
+  title: string;
+  category: string;
+  salary: string;
+  candidate_required_location: string;
+};
 
 const Joblist = () => {
-  const [jobsPartTime, setJobsPartTime] = useState([])
-  const [jobsFullTime, setJobsFullTime] = useState([])
-  const [error, setError] = useState('')
-  const [section1Visible, setSection1Visible] = useState(false)
-  const [section2Visible, setSection2Visible] = useState(false)
-  const [activeTab, setActiveTab] = useState('partTime') // handle tab switching
+  const [jobsPartTime, setJobsPartTime] = useState<Job[]>([]);
+  const [jobsFullTime, setJobsFullTime] = useState<Job[]>([]);
+  const [error, setError] = useState<string>("");
+  const [section1Visible, setSection1Visible] = useState(false);
+  const [section2Visible, setSection2Visible] = useState(false);
+  const [activeTab, setActiveTab] = useState<"partTime" | "fullTime">("partTime");
 
-  const sectRef1 = useRef(null)
-  const sectRef2 = useRef(null)
+  const sectRef1 = useRef<HTMLButtonElement | null>(null);
+  const sectRef2 = useRef<HTMLButtonElement | null>(null);
 
   // Intersection Observer for tab animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.target === sectRef1.current) setSection1Visible(entry.isIntersecting)
-          if (entry.target === sectRef2.current) setSection2Visible(entry.isIntersecting)
-        })
+          if (entry.target === sectRef1.current) setSection1Visible(entry.isIntersecting);
+          if (entry.target === sectRef2.current) setSection2Visible(entry.isIntersecting);
+        });
       },
       { threshold: 0.2 }
-    )
+    );
 
-    if (sectRef1.current) observer.observe(sectRef1.current)
-    if (sectRef2.current) observer.observe(sectRef2.current)
+    if (sectRef1.current) observer.observe(sectRef1.current);
+    if (sectRef2.current) observer.observe(sectRef2.current);
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   // Fetch Jobs with cache to prevent breaking when navigating
   useEffect(() => {
-    let isMounted = true
+    let isMounted = true;
 
     const fetchJobs = async () => {
       try {
-        const res = await axios.get('https://remotive.com/api/remote-jobs')
+        const res = await axios.get("https://remotive.com/api/remote-jobs");
         if (isMounted) {
-          const allJobs = res.data.jobs
-          setJobsPartTime(allJobs.slice(19, 25))
-          setJobsFullTime(allJobs.slice(34, 38))
+          const allJobs: Job[] = res.data.jobs;
+          setJobsPartTime(allJobs.slice(19, 25));
+          setJobsFullTime(allJobs.slice(34, 38));
         }
       } catch (err) {
-        if (isMounted) setError(err.message)
-      }
-    }
+  if (err instanceof Error) {
+    if (isMounted) setError(err.message);
+  } else {
+    if (isMounted) setError("An unknown error occurred");
+  }
+}
 
-    fetchJobs()
+    };
+
+    fetchJobs();
 
     return () => {
-      isMounted = false
-    }
-  }, [])
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <div>
@@ -65,9 +81,13 @@ const Joblist = () => {
             ref={sectRef1}
             type="button"
             className={`cursor-pointer h-9 px-4 rounded-md border-b-2 border-gray-700 text-sm whitespace-nowrap inline-flex items-center gap-x-2 transition-all duration-500 ${
-              section1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-            } ${activeTab === 'partTime' ? 'bg-gray-700 text-white border-blue-600 font-semibold' : 'bg-white text-gray-700 hover:bg-gray-700 hover:text-white'}`}
-            onClick={() => setActiveTab('partTime')}
+              section1Visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+            } ${
+              activeTab === "partTime"
+                ? "bg-gray-700 text-white border-blue-600 font-semibold"
+                : "bg-white text-gray-700 hover:bg-gray-700 hover:text-white"
+            }`}
+            onClick={() => setActiveTab("partTime")}
             role="tab"
           >
             Part Time
@@ -77,9 +97,13 @@ const Joblist = () => {
             ref={sectRef2}
             type="button"
             className={`cursor-pointer h-9 px-4 rounded-md border-b-2 border-gray-700 text-sm whitespace-nowrap inline-flex items-center gap-x-2 transition-all duration-500 ${
-              section2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-            } ${activeTab === 'fullTime' ? 'bg-gray-700 text-white border-blue-600 font-semibold' : 'bg-white text-gray-700 hover:bg-gray-700 hover:text-white'}`}
-            onClick={() => setActiveTab('fullTime')}
+              section2Visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+            } ${
+              activeTab === "fullTime"
+                ? "bg-gray-700 text-white border-blue-600 font-semibold"
+                : "bg-white text-gray-700 hover:bg-gray-700 hover:text-white"
+            }`}
+            onClick={() => setActiveTab("fullTime")}
             role="tab"
           >
             Full Time
@@ -88,7 +112,7 @@ const Joblist = () => {
       </div>
 
       {/* Part Time Jobs */}
-      {activeTab === 'partTime' && (
+      {activeTab === "partTime" && (
         <div role="tabpanel">
           {error && <div className="text-red-500 text-center">{error}</div>}
           {jobsPartTime.map((job) => (
@@ -98,11 +122,17 @@ const Joblist = () => {
             >
               <div className="p-4 grid sm:grid-cols-2 items-center md:p-5">
                 <div className="flex gap-7">
-                  <img
-                    src={job.company_logo}
-                    alt="company logo"
-                    className="w-12 sm:w-10 sm:h-12 border rounded-md border-gray-200 p-2"
-                  />
+                  {job.company_logo ? (
+                    <img
+                      src={job.company_logo}
+                      alt="company logo"
+                      className="w-12 sm:w-10 sm:h-12 border rounded-md border-gray-200 p-2"
+                    />
+                  ) : (
+                    <div className="w-12 h-12 flex items-center justify-center border rounded-md border-gray-200 bg-gray-100">
+                      No Logo
+                    </div>
+                  )}
                   <div>
                     <h1 className="font-bold md:text-[20px]">{job.company_name}</h1>
                     <p className="text-[13px]">
@@ -131,7 +161,7 @@ const Joblist = () => {
       )}
 
       {/* Full Time Jobs */}
-      {activeTab === 'fullTime' && (
+      {activeTab === "fullTime" && (
         <div role="tabpanel">
           {error && <div className="text-red-500 text-center">{error}</div>}
           {jobsFullTime.map((job) => (
@@ -141,11 +171,17 @@ const Joblist = () => {
             >
               <div className="p-4 grid sm:grid-cols-2 items-center md:p-5">
                 <div className="flex gap-7">
-                  <img
-                    src={job.company_logo}
-                    alt="company logo"
-                    className="w-12 sm:w-10 sm:h-12 border rounded-md border-gray-200 p-2"
-                  />
+                  {job.company_logo ? (
+                    <img
+                      src={job.company_logo}
+                      alt="company logo"
+                      className="w-12 sm:w-10 sm:h-12 border rounded-md border-gray-200 p-2"
+                    />
+                  ) : (
+                    <div className="w-12 h-12 flex items-center justify-center border rounded-md border-gray-200 bg-gray-100">
+                      No Logo
+                    </div>
+                  )}
                   <div>
                     <h1 className="font-bold md:text-[20px]">{job.company_name}</h1>
                     <p className="text-[13px]">
@@ -173,7 +209,7 @@ const Joblist = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Joblist
+export default Joblist;

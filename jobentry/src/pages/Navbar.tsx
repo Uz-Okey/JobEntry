@@ -78,7 +78,7 @@ const Navbar = () => {
                   <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
                     <li><Link to="/dashboardpage" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Categories</Link></li>
                     <li><Link to="/settingspage" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Avaliable Jobs</Link></li>
-                    <li><Link to="/earningspage" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</Link></li>
+                    
                   </ul>
                   <div className="py-1">
                     <Link to="/signoutpage" className="block buttonbg px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</Link>
