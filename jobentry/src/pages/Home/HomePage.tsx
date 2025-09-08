@@ -44,15 +44,15 @@ const HomePage = () => {
         }'
         className="relative"
       >
-        <div className="hs-carousel relative overflow-hidden w-full md:h-[500px] min-h-100 bg-white z-0">
-         <div className="hs-carousel-body absolute top-0 md:top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700">
+        <div className="hs-carousel h-[460px] relative overflow-hidden w-full md:h-[500px] lg:h-[550px] min-h-100 bg-white z-0">
+         <div className="my-[60px] md:my-[100px] hs-carousel-body absolute top-0 md:top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 ">
 
 
             {/* Slide 1 */}
-            <div className="hs-carousel-slide relative">
+            <div className="hs-carousel-slide  relative">
               <div className="relative h-full">
                 {/* Dark overlay */}
-                <div className="absolute inset-0 bg-black/50"></div>
+                <div className="absolute h-screen top-0 mb-0 bottom-0 inset-0 bg-black/50"></div>
                 <div className="relative left-4 top-1/5">
                   {/* Top line */}
                   <div className="lineH absolute top-0 left-0"></div>
@@ -69,13 +69,13 @@ const HomePage = () => {
                   <h2 className="carousel-text font-bold mb-4">
                     Find The Best StartUp Job That Fits You
                   </h2>
-                  <p className="text-[18px]  md:text-lg paragraph-color">
+                  <p className="text-[18px] md:max-w-[70%]  md:text-lg paragraph-color">
                     We help you discover exciting opportunities that are carefully tailored to your career and goals
                   </p>
                 </div>
 
 
-                <img src={car1} alt="Slide 1" className="w-full h-[700px] object-cover z-10" />
+                <img src={car1} alt="Slide 1" className="w-full h-[900px] object-cover z-10" />
               </div>
             </div>
 
@@ -83,7 +83,7 @@ const HomePage = () => {
             <div className="hs-carousel-slide relative">
               <div className="relative h-full">
                 {/* Dark overlay */}
-                <div className="absolute inset-0 bg-black/50"></div>
+                <div className="absolute inset-0 h-screen bg-black/50"></div>
                 <div className="relative left-4 top-1/5">
                   {/* Top line */}
                   <div className="lineH absolute top-0 left-0"></div>
@@ -99,12 +99,12 @@ const HomePage = () => {
                   <h2 className="font-bold carousel-text mb-4">
                     Find The Perfect Job That Deserves You
                   </h2>
-                  <p className="paragraph-color text-[18px] md:text-lg">
+                  <p className="paragraph-color md:max-w-[70%] text-[18px] md:text-lg">
                     You get the best job opportunities tailored to your skills, and give you experience. "we want you to grow".
                   </p>
                 </div>
 
-                <img src={car2} alt="Slide 2" className="w-full h-full object-cover z-10" />
+                <img src={car2} alt="Slide 2" className="w-full h-[900px] object-cover z-10" />
               </div>
             </div>
           </div>
