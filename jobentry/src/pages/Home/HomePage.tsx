@@ -66,8 +66,8 @@ const HomePage = () => {
                   className={`absolute left-10 top-1/4 -translate-y-1/2 max-w-[60%] text-white transition-all duration-1000 ease-out 
   ${text ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-15'} z-10`}
                 >
-                  <h2 className="carousel-text font-bold mb-4">
-                    Find The Best StartUp Job That Fits You
+                  <h2 className="carousel-text my-2 font-bold mb-4">
+                   Discover The Right Startup Jobs For You
                   </h2>
                   <p className="text-[18px] md:max-w-[70%]  md:text-lg paragraph-color">
                     We help you discover exciting opportunities that are carefully tailored to your career and goals
@@ -96,7 +96,7 @@ const HomePage = () => {
                   className={`absolute left-10 top-1/4 -translate-y-1/2 max-w-[70%] text-white transform transition-all duration-1000 ease-out 
                   ${text ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-15'} z-10`}
                 >
-                  <h2 className="font-bold carousel-text mb-4">
+                  <h2 className="font-bold my-2 carousel-text mb-4">
                     Find The Perfect Job That Deserves You
                   </h2>
                   <p className="paragraph-color md:max-w-[70%] text-[18px] md:text-lg">
